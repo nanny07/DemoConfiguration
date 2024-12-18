@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "DemoHostConfiguration": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development",
+        //"UserSecretKey": "UserSecretKey from envvar"
+      }
+    }
+  }
+}

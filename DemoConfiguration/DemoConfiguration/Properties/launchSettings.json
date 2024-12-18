@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "DemoConfiguration": {
+      "commandName": "Project",
+      "commandLineArgs": "--DemoKey=\"From CommandLine\"",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development",
+        "DemoKey": "From EnvVar"
+      }
+    }
+  }
+}
