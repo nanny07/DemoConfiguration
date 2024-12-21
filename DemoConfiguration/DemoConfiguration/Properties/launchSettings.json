@@ -2,10 +2,10 @@
   "profiles": {
     "DemoConfiguration": {
       "commandName": "Project",
-      "commandLineArgs": "--DemoKey=\"From CommandLine\"",
+      //"commandLineArgs": "--DemoKey=\"From CommandLine\"",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development",
-        "DemoKey": "From EnvVar"
+        //"DemoKey": "From EnvVar"
       }
     }
   }

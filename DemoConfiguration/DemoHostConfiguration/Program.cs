@@ -1,7 +1,10 @@
-﻿using DemoCommon;
+﻿// Install package Microsoft.Extensions.Hosting
+using DemoCommon;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
+var environmentName = Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT") ?? string.Empty;
 
 // All we need to do is to create a HostBuilder and build it.
 // https://learn.microsoft.com/en-us/dotnet/core/extensions/configuration#alternative-hosting-approach
@@ -10,11 +13,17 @@ IHost host = builder.Build();
 
 var configuration = host.Services.GetRequiredService<IConfiguration>();
 
-// Priority: CommandLine -> EnvVar -> UserSecret (if Development) -> appsettings.{env}.json -> appsettings.json
+// Priority:
+// 1. CommandLine
+// 2. EnvVar
+// 3. UserSecret (if Development)
+// 4. appsettings.{env}.json
+// 5. appsettings.json
 
-ConfigurationUtility.WriteKeyToConsole(configuration, "DemoKey");
-ConfigurationUtility.WriteKeyToConsole(configuration, "DemoOtherKey");
-//ConfigurationUtility.WriteKeyToConsole(configuration, "UserSecretKey");
+ConfigurationUtility.WriteToVSConsole($"Environment: {environmentName}");
+ConfigurationUtility.WriteKeyToVSConsole(configuration, "DemoKey");
+ConfigurationUtility.WriteKeyToVSConsole(configuration, "DemoOtherKey");
+ConfigurationUtility.WriteKeyToVSConsole(configuration, "UserSecretKey");
 
 // Tipically, you would run the host like this:
 //await host.RunAsync();

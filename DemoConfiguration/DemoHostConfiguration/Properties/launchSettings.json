@@ -2,8 +2,9 @@
   "profiles": {
     "DemoHostConfiguration": {
       "commandName": "Project",
+      //"commandLineArgs": "--UserSecretKey=\"UserSecretKey From CommandLine\"",
       "environmentVariables": {
-        "DOTNET_ENVIRONMENT": "Development",
+        "DOTNET_ENVIRONMENT": "Development"
         //"UserSecretKey": "UserSecretKey from envvar"
       }
     }
