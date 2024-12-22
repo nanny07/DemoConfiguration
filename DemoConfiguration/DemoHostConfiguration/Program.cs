@@ -13,12 +13,12 @@ IHost host = builder.Build();
 
 var configuration = host.Services.GetRequiredService<IConfiguration>();
 
-// Priority:
-// 1. CommandLine
-// 2. EnvVar
-// 3. UserSecret (if Development)
-// 4. appsettings.{env}.json
+// Priority (lower is higher):
 // 5. appsettings.json
+// 4. appsettings.{env}.json
+// 3. UserSecret (if Development)
+// 2. EnvVar
+// 1. CommandLine
 
 ConfigurationUtility.WriteToVSConsole($"Environment: {environmentName}");
 ConfigurationUtility.WriteKeyToVSConsole(configuration, "DemoKey");
